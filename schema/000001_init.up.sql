@@ -13,6 +13,13 @@ CREATE TABLE todo_lists
     description VARCHAR(255)
 );
 
+CREATE TABLE users_lists
+(
+    id      SERIAL                                               NOT NULL UNIQUE,
+    user_id INTEGER REFERENCES users (id) ON DELETE CASCADE      NOT NULL,
+    list_id INTEGER REFERENCES todo_lists (id) ON DELETE CASCADE NOT NULL
+);
+
 CREATE TABLE todo_items
 (
     id          SERIAL       NOT NULL UNIQUE,
@@ -26,11 +33,4 @@ CREATE TABLE lists_items
     id      SERIAL                                               NOT NULL UNIQUE,
     list_id INTEGER REFERENCES todo_lists (id) ON DELETE CASCADE NOT NULL,
     item_id INTEGER REFERENCES todo_items (id) ON DELETE CASCADE NOT NULL
-);
-
-CREATE TABLE users_lists
-(
-    id      SERIAL                                               NOT NULL UNIQUE,
-    user_id INTEGER REFERENCES users (id) ON DELETE CASCADE      NOT NULL,
-    list_id INTEGER REFERENCES todo_lists (id) ON DELETE CASCADE NOT NULL
 );

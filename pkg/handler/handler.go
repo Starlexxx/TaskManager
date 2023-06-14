@@ -1,8 +1,8 @@
 package handler
 
 import (
-	"TaskManager/pkg/service"
 	"github.com/gin-gonic/gin"
+	"taskmanager/pkg/service"
 )
 
 type Handler struct {

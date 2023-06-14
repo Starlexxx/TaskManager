@@ -4,5 +4,5 @@
 # Ignore OS files
 .DS_Store
 
-#ignore env files
+# Ignore env files
 .env
